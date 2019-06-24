@@ -31,16 +31,24 @@ public class apple {
 		this.weight = weight;
 	}
 	public static void main(String[] args) {
-		System.out.println("apple:"+color+"/"+weight);
+		// 匿名内部类形式
+				System.out.println("匿名内部类形式:");
+				Object apples = null;
+				ConsumerApple(apples, new Consumer<apple>() {
+
+					
+					@Override
+					public void accept(apple t) {
+						// TODO Auto-generated method stub
+						//匿名内部类形式
+						System.out.println(t);
+					}
+					
+
+				});
 	}
-
-
-
-
-	public static void ConsumerApple(apple[] apps,Consumer<apple> c){
-		 for(apple app:apps){
-			 c.accept(app);
-		 }
-	 }
-
+	private static void ConsumerApple(Object apples, Consumer<apple> consumer) {
+		// TODO Auto-generated method stub
+		
+	}
 }
