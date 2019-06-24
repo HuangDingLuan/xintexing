@@ -30,25 +30,26 @@ public class apple {
 	public void setWeight(float weight) {
 		this.weight = weight;
 	}
-	public static void main(String[] args) {
-		// 匿名内部类形式
-				System.out.println("匿名内部类形式:");
-				Object apples = null;
-				ConsumerApple(apples, new Consumer<apple>() {
+	  @Override
+	    public String toString() {
+	        return "苹果{" +"颜色='" + color + '\'' + ", 重量=" + weight +'}';            
+	    }
+	
+	 public static void consumerApple(apple[] apples, Consumer<apple> consumer) {
+	        for (apple apple : apples) {
+	            consumer.accept(apple);
+	        }
+	    }
 
-					
-					@Override
-					public void accept(apple t) {
-						// TODO Auto-generated method stub
-						//匿名内部类形式
-						System.out.println(t);
-					}
-					
+	    public static void main(String[] args) {
+	        apple[] apples = {new apple("red", 4)};
+	        // 内部类
+	        consumerApple(apples, new Consumer<apple>() {
+	            @Override
+	            public void accept(apple apple) {
+	                System.out.println(apple);
+	            }
+	        });
 
-				});
+	    }
 	}
-	private static void ConsumerApple(Object apples, Consumer<apple> consumer) {
-		// TODO Auto-generated method stub
-		
-	}
-}
