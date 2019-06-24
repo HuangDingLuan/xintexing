@@ -50,6 +50,9 @@ public class apple {
 	                System.out.println(apple);
 	            }
 	        });
+	        // 使用lambda表达式
+	        consumerApple(apples, (apple) -> System.out.println(apple));
+
 
 	    }
 	}
